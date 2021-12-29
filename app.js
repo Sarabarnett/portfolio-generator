@@ -17,12 +17,30 @@ const promptUser = () => {
     {
     type: 'input',
     name: 'name',
-    message: 'What is your name?'
+    message: 'What is your name? (Required)',
+    validate: nameInput => {
+      if (nameInput) {
+        return true;
+      }
+      else {
+        console.log('Please enter your name!!');
+        return false;
+        }
+      }
     },
     {
       type: 'input',
       name: 'github',
-      message: 'Enter your GitHub username.'
+      message: 'Enter your GitHub username.',
+      validate: usernameInput => {
+        if (usernameInput) {
+          return true;
+        }
+        else {
+          console.log('Please enter your username!!');
+          return false;
+          }
+        }
     },
     {
       type: 'input',
@@ -50,12 +68,30 @@ const promptUser = () => {
       {
         type: 'input',
         name: 'name',
-        message: 'What is the name of your project?'
+        message: 'What is the name of your project? (required)',
+        validate: nameInput => {
+          if (nameInput) {
+            return true;
+          }
+          else {
+            console.log('Please enter the project name!!');
+            return false;
+            }
+          }
       },
       {
         type: 'input',
         name: 'description',
-        message: 'Provide a description of the project (Required)'
+        message: 'Provide a description of the project (Required)',
+        validate: descriptionInput => {
+          if (descriptionInput) {
+            return true;
+          }
+          else {
+            console.log('Please enter a description!!');
+            return false;
+            }
+          }
       },
       {
         type: 'checkbox',
@@ -66,7 +102,16 @@ const promptUser = () => {
       {
         type: 'input',
         name: 'link',
-        message: 'Enter your GitHub link to your project. (Required)'
+        message: 'Enter your GitHub link to your project. (Required)',
+        validate: linkInput => {
+          if (linkInput) {
+            return true;
+          }
+          else {
+            console.log('Please enter a link!!');
+            return false;
+            }
+          }
       },
       {
         type: 'confirm', 
